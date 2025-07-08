@@ -21,6 +21,9 @@
     "main": [
 			"jackhassoup.paraglider.ParagliderMod"
     ],
+		"initModels": [
+			"jackhassoup.paraglider.ParagliderModels"
+		],
 		"beforeGameStart": [
 			"jackhassoup.paraglider.ParagliderMod"
 		],
