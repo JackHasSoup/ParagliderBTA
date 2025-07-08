@@ -27,6 +27,7 @@ val loader_version: String by project
 
 val halplibe_version: String by project
 val mod_menu_version: String by project
+val gravity_lib_version: String by project
 
 group = mod_group
 base.archivesName.set(mod_name)
@@ -92,6 +93,7 @@ dependencies {
 
     modRuntimeOnly("objects:client:43db9b498cb67058d2e12d394e6507722e71bb45") // https://piston-data.mojang.com/v1/objects/43db9b498cb67058d2e12d394e6507722e71bb45/client.jar
     modImplementation("net.fabricmc:fabric-loader:$loader_version")
+	modImplementation("com.github.Garkatron:GravityLib:$gravity_lib_version")
 
     // Helper library
     // If you do not need Halplibe you can comment this line out or delete this line
@@ -131,13 +133,16 @@ dependencies {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+	toolchain {
+		languageVersion.set(JavaLanguageVersion.of(17))
+	}
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
     withSourcesJar()
 }
 
 tasks.compileJava {
-    options.release.set(8)
+    options.release.set(17)
 }
 
 tasks.jar {
